@@ -3,27 +3,38 @@ import cors from "cors";
 
 const server = express();
 server.use(cors());
+server.use(express.json());
 
-const user = {
-    username: '',
-    avatar: ''
-};
+let ID_tweet = 1;
+let ID_user = 1;
 
-const tweet = {
-    username: '',
-    tweet: ''
-};
+const user = [];
+
+const tweet = [];
 
 server.post("/sign-up", (req, res) => {
+    const use = {...req.body};
+    user.push(use);
+
+    ID_user++;
+
+    res.send("OK");
+});
+
+server.post("/tweets", (req, res) => {
+    const useravatar = user.find(use => use.username === req.body.username);
+    tweet.push({ID_tweet, ...req.body, avatar: useravatar.avatar});
+
+    ID_tweet++;
+
+    res.send("OK");
 
 });
 
-server.post("/tweet", (req, res) => {
+server.get("/tweets", (req, res) => {
+    const lastTweets = tweet.sort((a, b) => b.ID_tweet - a.ID_tweet).filter((post, i) => i < 10);
 
+    res.send(lastTweets);
 });
 
-server.get("/tweet", (req, res) => {
-
-});
-
-server.listen(5000);
+server.listen(6000);
