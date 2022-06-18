@@ -1,0 +1,26 @@
+{
+  "name": "projeto_11_tweteroo",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IsaacSG/Projeto_11_Tweteroo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IsaacSG/Projeto_11_Tweteroo/issues"
+  },
+  "homepage": "https://github.com/IsaacSG/Projeto_11_Tweteroo#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "nodemon": "^2.0.16"
+  }
+}
